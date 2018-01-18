@@ -29,7 +29,7 @@ int addRow(HashTable* input, Key key, Value value) {
 HashTable init() {
 	HashTable result;
 
-	result.dim = 1;
+	result.dim = 0;
 	result.key = calloc(1, sizeof(Key));
 	result.value = calloc(1, sizeof(Value));
 
