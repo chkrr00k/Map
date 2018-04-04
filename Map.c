@@ -18,8 +18,8 @@ int addRow(HashTable* input, Key key, Value value) {
 		return -1;
 	}
 	input->dim++;
-	input->value = (Value*)realloc(input->value, sizeof(Value)*input->dim);
-	input->key = (Key*)realloc(input->key, sizeof(Key)*input->dim);
+	input->value = (Value*)realloc(input->value, sizeof(Value)*((input->dim) + 1));
+	input->key = (Key*)realloc(input->key, sizeof(Key)*((input->dim) + 1));
 	input->key[input->dim - 1] = key;
 	input->value[input->dim - 1] = value;
 
@@ -30,8 +30,8 @@ HashTable init() {
 	HashTable result;
 
 	result.dim = 0;
-	result.key = (Key*)malloc(sizeof(Key));
-	result.value = (Value*)malloc(sizeof(Value));
+	result.key = calloc(1, sizeof(Key));
+	result.value = calloc(1, sizeof(Value));
 
 	return result;
 }
